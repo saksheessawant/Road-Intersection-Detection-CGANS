@@ -1,54 +1,69 @@
+# README
 
-# Road Intersection Detection using GANs
+## Leveraging GANs for Road Intersection Detection
 
-## Project Overview
+### Authors:
+- **Srujana Kanchisamudram Seshagiribabu**  
+  ECE NYU Tandon  
+  Email: sk11115@nyu.edu
 
-This work introduces a novel application of Conditional Generative Adversarial
-Networks (cGANs) for the task of generating steering angle representations from
-road images, with a specific focus on road intersections. Leveraging road images as
-condition labels for cGANs, our approach aims to produce steering angle outputs
-that accurately capture the complexities of navigating through intersections. We
-present a comprehensive methodology that integrates discriminative and generative
-components of cGANs to effectively model the relationship between road images
-and steering angles. Extensive experiments demonstrate the efficacy of our ap-
-proach in generating accurate and contextually relevant steering angle predictions
-across diverse road scenarios.
+- **Sakshee Sawant**  
+  ECE NYU Tandon  
+  Email: ss18198@nyu.edu
 
+### Abstract
+This project introduces a novel application of Conditional Generative Adversarial Networks (cGANs) for generating steering angle representations from road images, with a specific focus on road intersections. Our approach leverages road images as condition labels for cGANs to produce steering angle outputs that accurately capture the complexities of navigating through intersections. We present a methodology that integrates discriminative and generative components of cGANs to model the relationship between road images and steering angles. Extensive experiments demonstrate the efficacy of our approach in generating accurate and contextually relevant steering angle predictions across diverse road scenarios.
 
-This project explores the use of Generative Adversarial Networks (GANs) to detect intersections on roads and autonomously steer a vehicle through driveways containing intersections. The CARLA Steering Dataset for Self Driving Cars from Kaggle is utilized to train the GAN model, aiming to enhance the vehicle's ability to navigate complex environments by identifying and responding to intersections.
+### 1. Introduction
+The intersection of computer vision and machine learning has significantly advanced tasks related to autonomous driving and scene understanding. One of the pivotal challenges in this domain is the accurate depiction of steering angles at road intersections, crucial for safe and efficient navigation. Our work leverages Conditional Generative Adversarial Networks (cGANs) as a powerful tool for generating steering angle representations from road images.
 
+### 2. Literature Survey
+We have explored various foundational and recent works that utilize Conditional Generative Adversarial Networks (cGANs) for image generation tasks and autonomous driving systems. These include techniques for image-to-image translation, steering angle prediction, and intersection detection using deep learning.
 
-Datset link : https://www.kaggle.com/datasets/zahidbooni/alltownswithweather
+### 3. Proposed Framework
+Our framework employs Conditional Generative Adversarial Networks (cGANs), comprising a generator \(G\) and discriminator \(D\). The generator network is responsible for generating steering angles corresponding to input images and noise, while the discriminator network distinguishes between real and generated steering angles.
 
+### 4. Experimental Setup
+We describe the experimental setup used to train and evaluate our proposed steering angle generation framework, including dataset details, preprocessing steps, and the training procedure.
 
-## Table of Contents
-- [Data Preparation](#data-preparation)
-- [Model Training](#model-training)
-- [Intersection Detection](#intersection-detection)
-- [Results](#results)
+#### 4.1 Dataset
+We utilized the Carla dataset from Kaggle, which consists of 86,491 road images captured from various driving scenarios along with their corresponding steering angle values.
 
-## Data Preparation
-The dataset contains labels for steering angles normalized between [-1, 1], where -1 indicates a full left turn, 1 indicates a full right turn, and 0 indicates a straight path. We utilized K-means clustering to identify clusters when the steering angle changes.
+[Dataset link](https://www.kaggle.com/datasets/zahidbooni/alltownswithweather)
 
-Steps:
-1. **Dataset Annotation**: Label images that contain intersections manually or using computer vision techniques.
-2. **Dataset Split**: Split the dataset into training, validation, and test sets.
+#### 4.2 Preprocessing
+Preprocessing steps include removing extreme steering angle values, balancing the dataset, and normalizing the steering angle values to the range [-1, 1].
 
-## Model Training
-### Conditional GAN (cGAN)
-We modified the standard GAN architecture to a Conditional GAN (cGAN) where the generator takes both random noise and the intersection label as input.
+#### 4.3 Label Distribution Visualization
+We visualized the distribution of steering angle labels in the dataset to ensure balance and diversity.
 
-Steps:
-1. **Generator**: Learns to generate realistic images of intersections conditioned on the input noise and label.
-2. **Discriminator**: Learns to distinguish between real images with intersections and fake images generated by the generator.
+#### 4.4 Experimental Procedure
+The dataset was divided into training, validation, and test sets. We employed standard metrics such as mean squared error (MSE) to assess the accuracy of steering angle predictions generated by our model.
 
-## Results
+### 5. Results and Observations
+#### 5.1 Loss Curve Analysis
+The generator and discriminator loss curves were analyzed to understand the training dynamics and convergence.
 
-<img width="769" alt="image" src="https://github.com/user-attachments/assets/1f940935-def9-4c57-a0c8-791e529a8185">
+#### 5.2 Steering Angle Analysis
+We compared the generated steering angles with ground truth values, demonstrating the model's accuracy and context relevance.
 
+#### 5.3 Evaluation Metrics
+We used metrics like Mean Absolute Error (MAE), Mean Squared Error (MSE), variance, and standard deviation to evaluate the model's performance.
 
+#### 5.4 Comparative Analysis
+Our model's performance was compared against baseline models, showcasing its superior accuracy and realism in generating steering angle predictions.
 
-<img width="769" alt="image" src="https://github.com/user-attachments/assets/f0aece97-cb40-4df9-a518-4ec68a7b1bf5">
+### 6. Future Scope
+We intend to explore the integration of Vicinal Risk Minimization (VRM) into our regression model training pipeline to enhance robustness and generalization capabilities.
 
+### 7. Conclusion
+The proposed cGAN model demonstrates exceptional ability in predicting steering angles from input images, significantly advancing the state-of-the-art in autonomous driving systems. Our approach paves the way for developing more resilient and intelligent autonomous vehicles.
 
+### References
+For a detailed list of references, please refer to the `references.txt` file in the repository.
 
+For more details, please refer to our [GitHub Repository](https://github.com/your-repo-link).
+
+---
+
+Feel free to reach out to us via email for any questions or collaboration opportunities. Happy experimenting!
